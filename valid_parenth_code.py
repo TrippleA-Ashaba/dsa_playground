@@ -20,3 +20,39 @@ Input: s = "(]"
 Output: false
 
 """
+
+
+def isValid(s):
+    stack = list()
+
+    if len(s) % 2 != 0 or s[0] not in [
+        "(",
+        "{",
+        "[",
+    ]:  # Odd numbered strings can't be valid
+        return False
+
+    for char in s:
+        if char in ["(", "{", "["]:
+            stack.append(char)
+        elif char == ")" and len(stack) != 0 and stack[-1] == "(":
+            stack.pop()
+        elif char == "}" and len(stack) != 0 and stack[-1] == "{":
+            stack.pop()
+        elif char == "]" and len(stack) != 0 and stack[-1] == "[":
+            stack.pop()
+        else:
+            return False
+
+    return len(stack) == 0
+
+
+if __name__ == "__main__":
+    s = "()"
+    print(isValid(s))
+
+    s = "()[]{}"
+    print(isValid(s))
+
+    s = "(]"
+    print(isValid(s))

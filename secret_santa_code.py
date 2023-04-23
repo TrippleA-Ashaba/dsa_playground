@@ -17,7 +17,6 @@ Example output: [['Cartman', 'Stan'], ['Kyle', 'Cartman'], ['Stan', 'Kyle'],
 
 import copy
 from random import shuffle
-import collections
 
 
 def secret_santa(players):

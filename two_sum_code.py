@@ -22,7 +22,13 @@ Output: [0,1]
 
 
 def two_sum(nums, target):
-    pass
+    seen = {}
+    for i, num in enumerate(nums):
+        remainder = target - num
+        if remainder in seen:
+            return seen[remainder], i
+        else:
+            seen[num] = i
 
 
 if __name__ == "__main__":
