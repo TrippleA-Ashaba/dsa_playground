@@ -15,21 +15,18 @@ Example output: [['Cartman', 'Stan'], ['Kyle', 'Cartman'], ['Stan', 'Kyle'],
 """
 
 
-import copy
-from random import shuffle
+import random
 
 
 def secret_santa(players):
-    giver = copy.deepcopy(players)
-    shuffle(giver)
-    result = []
-    for i, player in enumerate(players):
-        if player != giver[i]:
-            result.append([player, giver[i]])
-        else:
-            i += 1
-    if len(result) != len(players):
-        return secret_santa(players)
+    giver = players.copy()
+    random.shuffle(giver)
+    result = [[giver[i - 1], giver[i]] for i in range(len(giver))]
+
+    # Check if any player is paired with themselves
+    while any(pair[0] == pair[1] for pair in result):
+        random.shuffle(giver)
+        result = [[giver[i - 1], giver[i]] for i in range(len(giver))]
     return result
 
 
