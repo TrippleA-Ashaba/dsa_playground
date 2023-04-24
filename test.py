@@ -2,26 +2,11 @@ import random
 import unittest
 
 from secret_santa_code import secret_santa
-from two_sum_code import two_sum
+from two_sum_code_1 import two_sum
+from valid_parenth_code_2 import isValid
 
 
-class TestTwoSum(unittest.TestCase):
-    def test_two_sum_1(self):
-        nums = [2, 7, 11, 15]
-        target = 9
-        assert two_sum(nums, target) == (0, 1)
-
-    def test_two_sum_2(self):
-        nums = [3, 2, 4]
-        target = 6
-        assert two_sum(nums, target) == (1, 2)
-
-    def test_two_sum_3(self):
-        nums = [3, 3]
-        target = 6
-        assert two_sum(nums, target) == (0, 1)
-
-
+# Secret Santa
 class TestSecretSanta(unittest.TestCase):
     def test_secret_santa(self):
         players = ["Cartman", "Kyle", "Stan", "Kenny"]
@@ -47,6 +32,30 @@ class TestSecretSanta(unittest.TestCase):
         random.shuffle(players_copy)
         random.shuffle(result_copy)
         assert result != result_copy  # a few age cases
+
+
+# ! 1. TwoSum
+class TestTwoSum(unittest.TestCase):
+    def test_two_sum(self):
+        assert two_sum([2, 7, 11, 15], 9) == (0, 1)
+
+        assert two_sum([3, 2, 4], 6) == (1, 2)
+
+        assert two_sum([3, 3], 6) == (0, 1)
+
+
+#! 2. Valid Parentheses
+class TestValidParentheses(unittest.TestCase):
+    def test_valid_parenthesis(self):
+        assert isValid("()[]{}") == True
+
+        assert isValid("(]") == False
+
+        assert isValid("]()") == False
+
+        assert isValid("(]{}") == False
+
+        assert isValid(" ") == False
 
 
 if __name__ == "__main__":
