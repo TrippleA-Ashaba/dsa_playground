@@ -5,6 +5,7 @@ from secret_santa_code import secret_santa
 from two_sum_code_1 import two_sum
 from valid_parenth_code_2 import isValid
 from best_time_buy_stock_4 import maxProfit
+from valid_palindrome_5 import valid_palindrome
 
 
 # Secret Santa
@@ -64,9 +65,23 @@ class TestBestTimeBuyAndSell(unittest.TestCase):
     def test_best_time_buy_sell(self):
         assert maxProfit([7, 1, 5, 3, 6, 4]) == 5
 
-        assert maxProfit([7, 6, 4, 3, 1]) == 1
+        assert maxProfit([7, 6, 4, 3, 1]) == 0
 
         assert maxProfit([1, 2, 4, 2, 5, 7, 2, 4, 9, 0, 9]) == 9
+
+
+# ! 5. Valid Palindrome
+
+
+class TestValidPalindrome(unittest.TestCase):
+    def test_valid_palindrome(self):
+        assert valid_palindrome("A man, a plan, a canal: Panama") == True
+
+        assert valid_palindrome(" ") == True
+
+        assert valid_palindrome("0P") == False
+
+        assert valid_palindrome("race a car") == False
 
 
 if __name__ == "__main__":
