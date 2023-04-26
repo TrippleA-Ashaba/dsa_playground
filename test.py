@@ -4,6 +4,7 @@ import unittest
 from secret_santa_code import secret_santa
 from two_sum_code_1 import two_sum
 from valid_parenth_code_2 import isValid
+from best_time_buy_stock_4 import maxProfit
 
 
 # Secret Santa
@@ -56,6 +57,16 @@ class TestValidParentheses(unittest.TestCase):
         assert isValid("(]{}") == False
 
         assert isValid(" ") == False
+
+
+# ! 4. Best time to buy and sell stock
+class TestBestTimeBuyAndSell(unittest.TestCase):
+    def test_best_time_buy_sell(self):
+        assert maxProfit([7, 1, 5, 3, 6, 4]) == 5
+
+        assert maxProfit([7, 6, 4, 3, 1]) == 1
+
+        assert maxProfit([1, 2, 4, 2, 5, 7, 2, 4, 9, 0, 9]) == 9
 
 
 if __name__ == "__main__":

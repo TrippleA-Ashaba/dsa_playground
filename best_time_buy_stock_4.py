@@ -16,21 +16,30 @@ Input: prices = [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transactions are done and the max profit = 0.
 
+Example 3:
+Input: prices = [1,2,4,2,5,7,2,4,9,0,9]
+output: 9
+
 
 """
 
 
-def max_profit(prices):
-    prices_copy = prices.copy()
-    prices_copy.sort()
+def maxProfit(prices):
+    left = 0
+    right = 1
+    max_profit = 0
 
-    for i in prices:
-        print(i)
+    while right < len(prices):
+        current_profits = prices[right] - prices[left]
+        if prices[left] < prices[right]:
+            max_profit = max(current_profits, max_profit)
+        else:
+            left = right
+        right += 1
 
-    for i in prices_copy:
-        print(i)
+    return max_profit
 
 
-prices = [7, 1, 5, 3, 6, 4]
-
-max_profit(prices)
+if __name__ == "__main__":
+    prices = [1, 2, 4, 2, 5, 7, 2, 4, 9, 0, 9]
+    print(sorted([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
