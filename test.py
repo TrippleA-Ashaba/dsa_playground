@@ -6,6 +6,7 @@ from two_sum_code_1 import two_sum
 from valid_parenth_code_2 import isValid
 from best_time_buy_stock_4 import maxProfit
 from valid_palindrome_5 import valid_palindrome
+from valid_anagram_7 import is_anagram
 
 
 # Secret Santa
@@ -82,6 +83,15 @@ class TestValidPalindrome(unittest.TestCase):
         assert valid_palindrome("0P") == False
 
         assert valid_palindrome("race a car") == False
+
+
+# ! 7. Valid Anagram
+class TestValidAnagram(unittest.TestCase):
+    def test_valid_anagram(self):
+        assert is_anagram("anagram", "nagaram") == True
+        assert is_anagram("rat", "car") == False
+        assert is_anagram("aacc", "ccac") == False
+        assert is_anagram("leetcode", "codeelet") == True
 
 
 if __name__ == "__main__":

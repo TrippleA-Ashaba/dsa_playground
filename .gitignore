@@ -3,3 +3,4 @@
 
 .mypy_cache
 play.py
+.venv
