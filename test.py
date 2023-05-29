@@ -1,8 +1,12 @@
 import random
 import unittest
 
+# from play import isValid
+
 from secret_santa_code import secret_santa
-from two_sum_code_1 import two_sum
+
+from two_sum import two_sum
+
 from valid_parenth_code_2 import isValid
 from best_time_buy_stock_4 import maxProfit
 from valid_palindrome_5 import valid_palindrome
