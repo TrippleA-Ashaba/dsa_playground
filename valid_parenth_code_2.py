@@ -49,6 +49,27 @@ def isValid(s):
     return len(stack) == 0
 
 
+# More concise version of the solution
+
+# def isValid(s):
+#     if len(s) % 2 != 0 or s[0] not in "([{":
+#         return False
+
+#     stack = list()
+
+#     for i in s:
+#         if i in "([{":
+#             stack.append(i)
+#         elif i == ")" and stack and stack[-1] == "(":
+#             stack.pop()
+#         elif i == "]" and stack and stack[-1] == "[":
+#             stack.pop()
+#         elif i == "}" and stack and stack[-1] == "{":
+#             stack.pop()
+
+#     return not stack
+
+
 if __name__ == "__main__":
     s = "()"
     print(isValid(s))

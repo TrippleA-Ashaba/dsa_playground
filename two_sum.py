@@ -24,13 +24,25 @@ Output: [0,1]
 
 
 def two_sum(nums, target):
+    """
+    Finds two numbers in the given list that add up to the target value.
+
+    Args:
+        nums (List[int]): List of integers.
+        target (int): Target value.
+
+    Returns:
+        Tuple[int, int]: Indices of the two numbers that sum up to the target.
+
+    """
+
     seen = {}
-    for i, num in enumerate(nums):
-        remainder = target - num
+    for i, current_num in enumerate(nums):
+        remainder = target - current_num
         if remainder in seen:
             return seen[remainder], i
         else:
-            seen[num] = i
+            seen[current_num] = i
 
 
 if __name__ == "__main__":
